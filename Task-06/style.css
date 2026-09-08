@@ -1,0 +1,309 @@
+/* =========================
+   Digital Clock - Task 6
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #07111f;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow-x: hidden;
+
+    position: relative;
+}
+
+
+/* Background Decoration */
+
+body::before,
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    filter: blur(90px);
+}
+
+body::before {
+    background: #164e63;
+
+    opacity: 0.35;
+
+    top: -160px;
+    left: -130px;
+}
+
+body::after {
+    background: #312e81;
+
+    opacity: 0.35;
+
+    right: -150px;
+    bottom: -180px;
+}
+
+
+/* Main Container */
+
+.clock-container {
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* Clock Card */
+
+.clock-card {
+    width: min(850px, 100%);
+
+    padding: 60px 50px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* Heading */
+
+.heading {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    color: #67e8f9;
+
+    margin-bottom: 22px;
+}
+
+
+/* Time */
+
+.time {
+    font-size: clamp(64px, 13vw, 145px);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    letter-spacing: 5px;
+
+    font-variant-numeric: tabular-nums;
+
+    text-shadow:
+        0 0 35px rgba(103, 232, 249, 0.28);
+
+    white-space: nowrap;
+}
+
+
+/* AM / PM */
+
+.period {
+    display: inline-block;
+
+    margin-top: 18px;
+
+    padding: 8px 18px;
+
+    border-radius: 50px;
+
+    background: rgba(103, 232, 249, 0.12);
+
+    border: 1px solid rgba(103, 232, 249, 0.25);
+
+    color: #a5f3fc;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+
+/* Date */
+
+.date {
+    margin-top: 30px;
+
+    font-size: clamp(18px, 3vw, 25px);
+
+    color: #dbeafe;
+
+    font-weight: 500;
+}
+
+
+/* Local Time */
+
+.timezone {
+    margin-top: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+}
+
+
+/* Green Status Dot */
+
+.status-dot {
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+
+/* =========================
+   Tablet
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .clock-container {
+        padding: 18px;
+    }
+
+    .clock-card {
+        padding: 50px 25px;
+
+        border-radius: 22px;
+    }
+
+    .time {
+        letter-spacing: 2px;
+    }
+}
+
+
+/* =========================
+   Mobile
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .clock-container {
+        padding: 14px;
+    }
+
+    .clock-card {
+        padding: 42px 16px;
+
+        border-radius: 20px;
+    }
+
+    .heading {
+        font-size: 11px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 18px;
+    }
+
+    .time {
+        font-size: clamp(46px, 15vw, 72px);
+
+        letter-spacing: 1px;
+    }
+
+    .period {
+        margin-top: 14px;
+
+        padding: 7px 14px;
+
+        font-size: 13px;
+    }
+
+    .date {
+        margin-top: 24px;
+
+        font-size: 16px;
+    }
+
+    .timezone {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================
+   Very Small Mobile
+   ========================= */
+
+@media (max-width: 340px) {
+
+    .clock-card {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .time {
+        font-size: 40px;
+    }
+}
